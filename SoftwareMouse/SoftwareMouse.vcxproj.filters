@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{80880931-cc20-47e1-9d2f-a43bc1564f9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\log">
+      <UniqueIdentifier>{8e17ea84-8fbb-4e57-9cff-7e86b0a9b6bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\input">
+      <UniqueIdentifier>{13c5a596-888b-4be9-a0d3-f0fa49614cb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\window">
+      <UniqueIdentifier>{4deaee86-c17f-4b42-9b94-cab6cd486584}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Log.cpp">
+      <Filter>src\log</Filter>
+    </ClCompile>
+    <ClCompile Include="InputSystem.cpp">
+      <Filter>src\input</Filter>
+    </ClCompile>
+    <ClCompile Include="RawInputSystem.cpp">
+      <Filter>src\input</Filter>
+    </ClCompile>
+    <ClCompile Include="SWMWindow.cpp">
+      <Filter>src\window</Filter>
+    </ClCompile>
+    <ClCompile Include="XInputSystem.cpp">
+      <Filter>src\input</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Binds.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Log.h">
+      <Filter>src\log</Filter>
+    </ClInclude>
+    <ClInclude Include="StdLogger.h">
+      <Filter>src\log</Filter>
+    </ClInclude>
+    <ClInclude Include="InputCodes.h">
+      <Filter>src\input</Filter>
+    </ClInclude>
+    <ClInclude Include="InputSystem.h">
+      <Filter>src\input</Filter>
+    </ClInclude>
+    <ClInclude Include="RawInputSystem.h">
+      <Filter>src\input</Filter>
+    </ClInclude>
+    <ClInclude Include="SWMWindow.h">
+      <Filter>src\window</Filter>
+    </ClInclude>
+    <ClInclude Include="XInputSystem.h">
+      <Filter>src\input</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Binds.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
