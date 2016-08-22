@@ -43,7 +43,7 @@ namespace SWM {
 	void MouseRight(bool state)
 	{
 		INPUT    Input = { 0 };
-		// left down 
+		// right down 
 		if (state)
 		{
 			Input.type = INPUT_MOUSE;
@@ -51,10 +51,132 @@ namespace SWM {
 			SendInput(1, &Input, sizeof(INPUT));
 		}
 		else
-		{	// left up
+		{	// right up
 			ZeroMemory(&Input, sizeof(INPUT));
 			Input.type = INPUT_MOUSE;
 			Input.mi.dwFlags = MOUSEEVENTF_RIGHTUP;
+			SendInput(1, &Input, sizeof(INPUT));
+		}
+	}
+
+	void MouseBack(bool state)
+	{
+		INPUT    Input = { 0 };
+		// right down 
+		if (state)
+		{
+			Input.type = INPUT_MOUSE;
+			Input.mi.dwFlags = MOUSEEVENTF_XDOWN;
+			Input.mi.mouseData = XBUTTON1;
+			SendInput(1, &Input, sizeof(INPUT));
+		}
+		else
+		{	// right up
+			ZeroMemory(&Input, sizeof(INPUT));
+			Input.type = INPUT_MOUSE;
+			Input.mi.dwFlags = MOUSEEVENTF_XUP;
+			Input.mi.mouseData = XBUTTON1;
+			SendInput(1, &Input, sizeof(INPUT));
+		}
+	}
+	
+	void MouseForward(bool state)
+	{
+		INPUT    Input = { 0 };
+		// right down 
+		if (state)
+		{
+			Input.type = INPUT_MOUSE;
+			Input.mi.dwFlags = MOUSEEVENTF_XDOWN;
+			Input.mi.mouseData = XBUTTON2;
+			SendInput(1, &Input, sizeof(INPUT));
+		}
+		else
+		{	// right up
+			ZeroMemory(&Input, sizeof(INPUT));
+			Input.type = INPUT_MOUSE;
+			Input.mi.dwFlags = MOUSEEVENTF_XUP;
+			Input.mi.mouseData = XBUTTON2;
+			SendInput(1, &Input, sizeof(INPUT));
+		}
+	}
+
+	void LeftArrow(bool state)
+	{
+		INPUT    Input = { 0 };
+		// LeftArrow down 
+		if (state)
+		{
+			Input.type = INPUT_KEYBOARD;
+			Input.ki.wVk = VK_LEFT;
+			SendInput(1, &Input, sizeof(INPUT));
+		}
+		else
+		{	// LeftArrow up
+			ZeroMemory(&Input, sizeof(INPUT));
+			Input.type = INPUT_KEYBOARD;
+			Input.ki.wVk = VK_LEFT;
+			Input.ki.dwFlags = KEYEVENTF_KEYUP;
+			SendInput(1, &Input, sizeof(INPUT));
+		}
+	}
+
+	void UpArrow(bool state)
+	{
+		INPUT    Input = { 0 };
+		// UpArrow down 
+		if (state)
+		{
+			Input.type = INPUT_KEYBOARD;
+			Input.ki.wVk = VK_UP;
+			SendInput(1, &Input, sizeof(INPUT));
+		}
+		else
+		{	// UpArrow up
+			ZeroMemory(&Input, sizeof(INPUT));
+			Input.type = INPUT_KEYBOARD;
+			Input.ki.wVk = VK_UP;
+			Input.ki.dwFlags = KEYEVENTF_KEYUP;
+			SendInput(1, &Input, sizeof(INPUT));
+		}
+	}
+
+	void DownArrow(bool state)
+	{
+		INPUT    Input = { 0 };
+		// DownArrow down 
+		if (state)
+		{
+			Input.type = INPUT_KEYBOARD;
+			Input.ki.wVk = VK_DOWN;
+			SendInput(1, &Input, sizeof(INPUT));
+		}
+		else
+		{	// DownArrow up
+			ZeroMemory(&Input, sizeof(INPUT));
+			Input.type = INPUT_KEYBOARD;
+			Input.ki.wVk = VK_DOWN;
+			Input.ki.dwFlags = KEYEVENTF_KEYUP;
+			SendInput(1, &Input, sizeof(INPUT));
+		}
+	}
+
+	void RightArrow(bool state)
+	{
+		INPUT    Input = { 0 };
+		// RightArrow down 
+		if (state)
+		{
+			Input.type = INPUT_KEYBOARD;
+			Input.ki.wVk = VK_RIGHT;
+			SendInput(1, &Input, sizeof(INPUT));
+		}
+		else
+		{	// RightArrow up
+			ZeroMemory(&Input, sizeof(INPUT));
+			Input.type = INPUT_KEYBOARD;
+			Input.ki.wVk = VK_RIGHT;
+			Input.ki.dwFlags = KEYEVENTF_KEYUP;
 			SendInput(1, &Input, sizeof(INPUT));
 		}
 	}
@@ -65,6 +187,14 @@ namespace SWM {
 		input->BindFunctionToAxis2d(JOY_STICK_RIGHT, MoveMouse2);
 		input->BindFunctionToKey(BUTTON_A, MouseLeft);
 		input->BindFunctionToKey(BUTTON_B, MouseRight);
+
+		input->BindFunctionToKey(BUTTON_LB, MouseBack);
+		input->BindFunctionToKey(BUTTON_RB, MouseForward);
+
+		input->BindFunctionToKey(BUTTON_LEFT, LeftArrow);
+		input->BindFunctionToKey(BUTTON_UP, UpArrow);
+		input->BindFunctionToKey(BUTTON_DOWN, DownArrow);
+		input->BindFunctionToKey(BUTTON_RIGHT, RightArrow);
 	}
 
 	void Binds::UpdateMouse(float dt)

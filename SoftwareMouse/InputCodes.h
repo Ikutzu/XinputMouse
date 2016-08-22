@@ -182,7 +182,7 @@ namespace SWM {
 		/** INVALID KEY */
 		NUM_KEYS,
 	};
-	
+
 #define BUTTON_LTHUMB BUTTON_L3
 #define BUTTON_RTHUMB BUTTON_R3
 #define BUTTON_START BUTTON_OPTIONS

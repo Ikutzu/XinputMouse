@@ -161,6 +161,10 @@ namespace SWM {
 			return BUTTON_LB;
 		case XINPUT_GAMEPAD_RIGHT_SHOULDER:
 			return BUTTON_RB;
+		case XINPUT_GAMEPAD_RIGHT_THUMB:
+			return BUTTON_RTHUMB;
+		case XINPUT_GAMEPAD_LEFT_THUMB:
+			return BUTTON_LTHUMB;
 		}
 
 		return KEY_VOID;
