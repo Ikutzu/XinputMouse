@@ -112,6 +112,8 @@ namespace SWM {
 				HandleButton(controllerState[i], state, XINPUT_GAMEPAD_RIGHT_SHOULDER);
 				HandleButton(controllerState[i], state, XINPUT_GAMEPAD_RIGHT_THUMB);
 				HandleButton(controllerState[i], state, XINPUT_GAMEPAD_LEFT_THUMB);
+				HandleButton(controllerState[i], state, XINPUT_GAMEPAD_START);
+				HandleButton(controllerState[i], state, XINPUT_GAMEPAD_BACK);
 
 				// throw old state in
 				controllerState[i] = state;
@@ -165,6 +167,10 @@ namespace SWM {
 			return BUTTON_RTHUMB;
 		case XINPUT_GAMEPAD_LEFT_THUMB:
 			return BUTTON_LTHUMB;
+		case XINPUT_GAMEPAD_START:
+			return BUTTON_START;
+		case XINPUT_GAMEPAD_BACK:
+			return BUTTON_BACK;
 		}
 
 		return KEY_VOID;

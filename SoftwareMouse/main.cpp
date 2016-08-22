@@ -29,7 +29,7 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
 		float dt = time.GetElapsedTimeS();
 		time.Start();
 		xinput.Update();
-		binds.UpdateMouse(dt);
+		open = binds.UpdateBinds(dt);
 		//open = window.Update();
 		Sleep(1);
 	}

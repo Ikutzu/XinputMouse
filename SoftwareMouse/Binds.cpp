@@ -58,6 +58,25 @@ namespace SWM {
 			SendInput(1, &Input, sizeof(INPUT));
 		}
 	}
+	
+	void MouseMiddle(bool state)
+	{
+		INPUT    Input = { 0 };
+		// right down 
+		if (state)
+		{
+			Input.type = INPUT_MOUSE;
+			Input.mi.dwFlags = MOUSEEVENTF_MIDDLEDOWN;
+			SendInput(1, &Input, sizeof(INPUT));
+		}
+		else
+		{	// right up
+			ZeroMemory(&Input, sizeof(INPUT));
+			Input.type = INPUT_MOUSE;
+			Input.mi.dwFlags = MOUSEEVENTF_MIDDLEUP;
+			SendInput(1, &Input, sizeof(INPUT));
+		}
+	}
 
 	void MouseBack(bool state)
 	{
@@ -181,13 +200,27 @@ namespace SWM {
 		}
 	}
 
+	bool CLOSESTART = false;
+	bool CLOSEBACK = false;
+
+	void Start(bool state)
+	{
+		CLOSESTART = state;
+	}
+
+	void Back(bool state)
+	{
+		CLOSEBACK = state;
+	}
+
 	Binds::Binds(InputSystem* input)
 	{
 		input->BindFunctionToAxis2d(JOY_STICK_LEFT, MoveMouse);
 		input->BindFunctionToAxis2d(JOY_STICK_RIGHT, MoveMouse2);
+
 		input->BindFunctionToKey(BUTTON_A, MouseLeft);
 		input->BindFunctionToKey(BUTTON_B, MouseRight);
-
+		input->BindFunctionToKey(BUTTON_RTHUMB, MouseMiddle);
 		input->BindFunctionToKey(BUTTON_LB, MouseBack);
 		input->BindFunctionToKey(BUTTON_RB, MouseForward);
 
@@ -195,9 +228,12 @@ namespace SWM {
 		input->BindFunctionToKey(BUTTON_UP, UpArrow);
 		input->BindFunctionToKey(BUTTON_DOWN, DownArrow);
 		input->BindFunctionToKey(BUTTON_RIGHT, RightArrow);
+
+		input->BindFunctionToKey(BUTTON_START, Start);
+		input->BindFunctionToKey(BUTTON_BACK, Back);
 	}
 
-	void Binds::UpdateMouse(float dt)
+	bool Binds::UpdateBinds(float dt)
 	{
 		asd = dt;
 		if (movement[0] > 1.0f || movement[0] < -1.0f || movement[1] > 1.0f || movement[1] < -1.0f)
@@ -238,5 +274,10 @@ namespace SWM {
 			if (y)
 				movement[1] = 0.0f;
 		}
+
+		if (CLOSESTART && CLOSEBACK)
+			return false;
+		else
+			return true;
 	}
 }
