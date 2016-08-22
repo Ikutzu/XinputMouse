@@ -19,6 +19,7 @@ Thumbs.db
 *.cache
 *.ilk
 *.log
+*.sdf
 [Bb]in
 [Dd]ebug*/
 *.lib
@@ -28,5 +29,4 @@ obj/
 _ReSharper*/
 [Tt]est[Rr]esult*
 SoftwareMouse.VC.opendb
-SoftwareMouse.sdf
-SoftwareMouse.sdf
+
